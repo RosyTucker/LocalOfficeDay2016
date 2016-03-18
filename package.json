@@ -30,5 +30,6 @@
   "bugs": {
     "url": "https://github.com/RosyTucker/LocalOfficeDay2016/issues"
   },
+  "engine": "node 5.6.0",
   "homepage": "https://github.com/RosyTucker/LocalOfficeDay2016#readme"
 }
