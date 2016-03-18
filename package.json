@@ -1,0 +1,34 @@
+{
+  "name": "local-office-day",
+  "version": "0.0.1",
+  "description": "Hardware project for local office day",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "./run.sh",
+    "lint": "./node_modules/.bin/eslint -c eslint.config.json .",
+    "test": "",
+    "build-package": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RosyTucker/LocalOfficeDay2016.git"
+  },
+  "dependencies": {
+    "express": "4.13.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "4.1.8",
+    "babel-preset-es2015": "6.3.13",
+    "eslint": "2.4.0"
+  },
+  "keywords": [
+    "hardware",
+    "iot"
+  ],
+  "author": "RTucker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RosyTucker/LocalOfficeDay2016/issues"
+  },
+  "homepage": "https://github.com/RosyTucker/LocalOfficeDay2016#readme"
+}
