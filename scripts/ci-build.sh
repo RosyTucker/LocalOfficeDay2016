@@ -13,10 +13,10 @@ echo "Installing Local Dependencies"
 npm install
 
 echo "Running Lint"
-npm run lint
+./node_modules/.bin/eslint -c eslint.config.json . --ignore-path .eslintignore
 
 echo "Running Unit Tests"
-npm run test
+mocha test --recursive --compilers js:babel-register --reporter nyan
 
 echo "Building Package"
 npm run build-package

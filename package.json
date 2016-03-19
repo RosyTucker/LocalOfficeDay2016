@@ -5,10 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": ".scripts/run.sh",
-    "lint": "./node_modules/.bin/eslint -c eslint.config.json . --ignore-path .eslintignore",
-    "test": "mocha test --recursive --compilers js:babel-register --reporter nyan",
+    "test": "./scripts/ci-build.sh",
     "build-package": "babel src -d dist",
-    "ci-build": "./scripts/ci-build.sh",
     "deploy": "./scripts/deploy.sh"
   },
   "repository": {
@@ -38,6 +36,6 @@
   "bugs": {
     "url": "https://github.com/RosyTucker/LocalOfficeDay2016/issues"
   },
-  "engine": "node 5.6.0",
+  "engine": "node 5.1.0",
   "homepage": "https://github.com/RosyTucker/LocalOfficeDay2016#readme"
 }
