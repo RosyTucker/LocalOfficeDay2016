@@ -6,6 +6,7 @@
   "scripts": {
     "start": ".scripts/run.sh",
     "test": "./scripts/ci-build.sh",
+    "local-test": "./scripts/local-build.sh",
     "build-package": "babel src -d dist",
     "deploy": "./scripts/deploy.sh"
   },
