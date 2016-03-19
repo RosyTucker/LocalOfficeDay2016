@@ -1,7 +1,0 @@
-*
-
-!/src/**/*
-!/package.json
-!/.babelrc
-!/index.js
-!/scripts/**/*

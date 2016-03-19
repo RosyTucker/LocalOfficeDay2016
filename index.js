@@ -5,4 +5,4 @@ const app = express();
 
 app.post(Task.endPoint, Task.postHandler);
 
-app.listen(5005);
+app.listen(process.env.PORT || 5005);
