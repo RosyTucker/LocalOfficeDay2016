@@ -16,7 +16,7 @@ echo "Running Lint"
 ./node_modules/.bin/eslint -c eslint.config.json . --ignore-path .eslintignore
 
 echo "Running Unit Tests"
-mocha test --recursive --compilers js:babel-register --reporter nyan
+mocha test --recursive --compilers js:babel-register
 
 echo "Building Package"
 npm run build-package
