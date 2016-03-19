@@ -4,10 +4,12 @@
   "description": "Hardware project for local office day",
   "main": "src/index.js",
   "scripts": {
-    "start": "./run.sh",
-    "lint": "./node_modules/.bin/eslint -c eslint.config.json .",
-    "test": "",
-    "build-package": "babel src -d dist"
+    "start": ".scripts/run.sh",
+    "lint": "./node_modules/.bin/eslint -c eslint.config.json . --ignore-path .eslintignore",
+    "test": "mocha test --recursive --compilers js:babel-register --reporter nyan",
+    "build-package": "babel src -d dist",
+    "ci-build": "./scripts/ci-build.sh",
+    "deploy": "./scripts/deploy.sh"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,13 @@
   "devDependencies": {
     "babel-eslint": "4.1.8",
     "babel-preset-es2015": "6.3.13",
-    "eslint": "2.4.0"
+    "babel-register": "^6.4.3",
+    "chai": "3.5.0",
+    "chai-string": "1.2.0",
+    "eslint": "2.4.0",
+    "mocha": "2.4.5",
+    "sinon": "1.17.3",
+    "sinon-chai": "2.8.0"
   },
   "keywords": [
     "hardware",
