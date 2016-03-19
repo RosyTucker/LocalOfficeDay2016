@@ -12,6 +12,6 @@ describe('Task', () => {
         Task.postHandler(req, res);
 
         expect(res.statusCode).to.equal(200);
-        expect(res.json).to.have.been.calledWith({data: {}})
+        expect(res.json).to.have.been.calledWith({data: {}});
     });
 });
