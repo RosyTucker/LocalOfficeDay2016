@@ -1,8 +1,8 @@
 import express from 'express';
-import Version from './Version';
+import Task from './Task';
 
 const app = express();
 
-app.get(Version.END_POINT, Version.handler);
+app.post(Task.endPoint, Task.postHandler);
 
 app.listen(5000);
