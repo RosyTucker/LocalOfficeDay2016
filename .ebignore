@@ -1,6 +1,7 @@
 *
 
+!/src/**/*
 !/package.json
-!scripts
-!.babelrc
-!src
+!/.babelrc
+!/index.js
+!/scripts/**/*
