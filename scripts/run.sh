@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-echo "NPM Version:"
-npm -v
-npm set progress=false
+echo "Installing Global Dependencies"
+npm install -g babel-cli
 
-echo "Building Package"
-npm run build-package
+echo "Installing Local Dependencies"
+npm install
 
-echo "Starting Server"
-DEBUG=express:* node dist/index.js
+echo "Serving"
+babel-node index.js

@@ -2,13 +2,13 @@
   "name": "local-office-day",
   "version": "0.0.1",
   "description": "Hardware project for local office day",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": ".scripts/run.sh",
-    "test": "./scripts/ci-build.sh",
-    "local-test": "./scripts/local-build.sh",
-    "build-package": "babel src -d dist",
-    "deploy": "./scripts/deploy.sh"
+    "start": "./scripts/run.sh",
+    "test": "./scripts/ci-test.sh",
+    "deploy": "./scripts/deploy.sh",
+    "local-test": "./scripts/local-test.sh",
+    "local-run": "./scripts/local-run.sh "
   },
   "repository": {
     "type": "git",
