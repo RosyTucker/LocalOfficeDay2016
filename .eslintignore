@@ -1,0 +1,10 @@
+*~
+*.swo
+*.swp
+.idea/
+*.iml
+*.iws
+node_modules/*
+dist/*
+.DS_Store
+scripts
