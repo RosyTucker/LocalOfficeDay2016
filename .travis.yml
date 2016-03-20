@@ -13,5 +13,5 @@ deploy:
   env: Production
   bucket_name: $ELASTIC_BEANSTALK_BUCKET
   on:
-    repo: RosyTucker/LocalOfficeDay
+    repo: RosyTucker/LocalOfficeDay2016
     branch: master
