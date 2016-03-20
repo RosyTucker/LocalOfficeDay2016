@@ -1,7 +1,7 @@
 Local Office Day 2016 Hardware Workshop
 =========
 
-![Build Status](https://travis-ci.org/RosyTucker/LocalOfficeDay2016.svg?branch=master)
+[![Build Status](https://travis-ci.org/RosyTucker/LocalOfficeDay2016.svg?branch=master)](https://travis-ci.org/RosyTucker/LocalOfficeDay2016)
 
 An express application for the local office day hardware workshop, to relay messages between agents.
 
