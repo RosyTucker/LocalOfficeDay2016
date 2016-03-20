@@ -40,6 +40,20 @@ describe('Task', () => {
         expect(response.json).to.have.been.calledWith({data: {error: 'Invalid task destination: NYC'}});
     });
 
+    it('should return 400 when task posted with no destination', () => {
+        Task.postHandler({body: {}}, response);
+
+        expect(response.statusCode).to.equal(400);
+        expect(response.json).to.have.been.calledWith({data: {error: 'Task must have a destination and type'}});
+    });
+
+    it('should return 400 when task posted with no type', () => {
+        Task.postHandler({body: {destination: 'LDN'}}, response);
+
+        expect(response.statusCode).to.equal(400);
+        expect(response.json).to.have.been.calledWith({data: {error: 'Task must have a destination and type'}});
+    });
+
     it('should return 400 when task posted with invalid type', () => {
         Task.postHandler(request('LDN', 'String'), response);
 
