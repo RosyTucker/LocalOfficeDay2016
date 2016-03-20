@@ -6,7 +6,7 @@
   "scripts": {
     "start": "./node_modules/.bin/babel-node index.js",
     "test": "./scripts/ci-test.sh",
-    "deploy": "./scripts/deploy.sh",
+    "local-deploy": "eb deploy Production",
     "local-test": "./scripts/local-test.sh",
     "local-run": "DEBUG=express:* babel-node index.js"
   },
