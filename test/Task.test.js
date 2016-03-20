@@ -33,6 +33,13 @@ describe('Task', () => {
         expect(response.json).to.have.been.calledWith({data: {}});
     });
 
+    it('should return 400 when no request body sent', () => {
+        Task.postHandler({}, response);
+
+        expect(response.statusCode).to.equal(400);
+        expect(response.json).to.have.been.calledWith({data: {error: 'Task must have a destination and type'}});
+    });
+
     it('should return 400 when task posted with invalid destination', () => {
         Task.postHandler(request('NYC', 1), response);
 

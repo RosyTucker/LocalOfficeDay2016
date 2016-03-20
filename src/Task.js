@@ -14,7 +14,7 @@ const invalidRequestResponse = (res, message) => {
 };
 
 const postHandler = (req, res) => {
-    if (!req.body.destination || !req.body.type) {
+    if (!req.body || !req.body.destination || !req.body.type) {
         invalidRequestResponse(res, 'Task must have a destination and type');
         return;
     }
