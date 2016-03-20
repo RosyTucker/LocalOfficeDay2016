@@ -3,15 +3,7 @@ node_js:
   - "5.1"
 
 deploy:
-  provider: elasticbeanstalk
-  access_key_id:
-    secure: $AWS_ACCESS_KEY_ID
-  secret_access_key:
-    secure: $AWS_SECRET_ACCESS_KEY
-  region: eu-west-1
-  app: LocalOfficeDay2016
-  env: Production
-  bucket_name: $ELASTIC_BEANSTALK_BUCKET
-  on:
-    repo: RosyTucker/LocalOfficeDay2016
-    branch: master
+  provider: heroku
+  api_key:
+    secure: $HEROKU_API_KEY
+    app: hackworks-challenge
