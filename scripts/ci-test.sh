@@ -8,4 +8,4 @@ npm set progress=false
 echo "Installing Dependencies"
 npm install
 
-./local-test.sh
+./scripts/local-test.sh
