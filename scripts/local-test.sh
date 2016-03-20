@@ -9,4 +9,4 @@ echo "Running Lint"
 ./node_modules/.bin/eslint -c .eslintconfig.json . --ignore-path .eslintignore
 
 echo "Running Tests"
-mocha test --recursive --compilers js:babel-register
+./node_modules/.bin/mocha test --recursive --compilers js:babel-register
