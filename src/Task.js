@@ -13,6 +13,11 @@ const invalidRequestResponse = (res, message) => {
     res.json({data: {error: message}});
 };
 
+const getHandler = (req, res) => {
+    res.statusCode = 200;
+    res.json({data: {destination: destinations[0], type: 1}});
+};
+
 const postHandler = (req, res) => {
     if (!req.body || !req.body.destination || !req.body.type) {
         invalidRequestResponse(res, 'Task must have a destination and type');
@@ -37,5 +42,6 @@ const postHandler = (req, res) => {
 
 export default {
     postHandler,
+    getHandler,
     endPoint
 };

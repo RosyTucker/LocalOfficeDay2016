@@ -6,5 +6,6 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post(Task.endPoint, Task.postHandler);
+app.get(Task.endPoint, Task.getHandler);
 
 app.listen(process.env.PORT || 5005);
