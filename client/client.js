@@ -7,7 +7,7 @@ const baseUrl = 'https://hackworks-challenge.herokuapp.com',
 const sleep = (millis) => {
     const endTime = new Date().getTime() + millis;
 
-    while (new Date().getTime() <= endTime) ;
+    while (new Date().getTime() <= endTime); // eslint-disable-line curly
 };
 
 const postTask = (destination, type) => {
@@ -15,7 +15,7 @@ const postTask = (destination, type) => {
         request({
             url: `${baseUrl}/task`,
             method: 'POST',
-            json: {"destination": destination, "type": type}
+            json: {destination: destination, type: type}
         }, (error, resp, body) => {
             resolve(resp.statusCode, body);
         });

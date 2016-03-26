@@ -38,7 +38,7 @@ const postHandler = (req, res) => {
         return;
     }
 
-   TaskStore.putTask({destination: destination, type: type});
+    TaskStore.putTask({destination: destination, type: type});
     res.statusCode = 200;
     res.json({data: {}});
 };
