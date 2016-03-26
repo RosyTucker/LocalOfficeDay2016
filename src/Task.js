@@ -1,3 +1,5 @@
+import TaskStore from './TaskStore';
+
 const endPoint = '/task', destinations = ['LDN', 'MCR'];
 
 const isNumber = (input) => {
@@ -15,7 +17,8 @@ const invalidRequestResponse = (res, message) => {
 
 const getHandler = (req, res) => {
     res.statusCode = 200;
-    res.json({data: {destination: destinations[0], type: 1}});
+    res.json();
+    res.json({data: TaskStore.getTask()});
 };
 
 const postHandler = (req, res) => {
@@ -36,6 +39,7 @@ const postHandler = (req, res) => {
         return;
     }
 
+   TaskStore.putTask({destination: destination, type: type});
     res.statusCode = 200;
     res.json({data: {}});
 };
