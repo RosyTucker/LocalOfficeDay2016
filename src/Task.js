@@ -17,7 +17,6 @@ const invalidRequestResponse = (res, message) => {
 
 const getHandler = (req, res) => {
     res.statusCode = 200;
-    res.json();
     res.json({data: TaskStore.getTask()});
 };
 
