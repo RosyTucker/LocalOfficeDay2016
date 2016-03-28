@@ -1,6 +1,7 @@
 let currentTask;
 
-const putTask = (task) => {
+const putTask = (destination, type) => {
+    const task = {destination: destination, type: type};
     currentTask = task;
 };
 

@@ -1,6 +1,6 @@
-import {expect, sinon} from './TestHelper';
-import Task from '../src/Task';
-import TaskStore from '../src/TaskStore';
+import {expect, sinon} from '../TestHelper';
+import Task from '../../src/Task';
+import TaskStore from '../../src/Task/TaskStore';
 
 const request = (destination, type) => {
     return {
@@ -31,7 +31,7 @@ describe('Task', () => {
 
             expect(response.statusCode).to.equal(200);
             expect(response.json).to.have.been.calledWith({data: {}});
-            expect(TaskStore.putTask).to.have.been.calledWithMatch({destination: 'LDN', type: 1});
+            expect(TaskStore.putTask).to.have.been.calledWithMatch('LDN', 1);
         });
 
         it('should return 200 when valid task posted for MCR', () => {
@@ -39,7 +39,7 @@ describe('Task', () => {
 
             expect(response.statusCode).to.equal(200);
             expect(response.json).to.have.been.calledWith({data: {}});
-            expect(TaskStore.putTask).to.have.been.calledWithMatch({destination: 'MCR', type: 2});
+            expect(TaskStore.putTask).to.have.been.calledWithMatch('MCR', 2);
         });
 
         it('should return 400 when no request body sent', () => {
