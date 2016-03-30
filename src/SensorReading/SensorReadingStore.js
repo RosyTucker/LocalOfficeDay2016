@@ -11,7 +11,7 @@ const getLatestReadings = (timeRangeMillis) => {
     return new Promise(resolve => {
         const client = DatabaseClient.getClient();
         client.zrangebyscore(seriesName, Date.now() - timeRangeMillis, Date.now(), (error, results) => {
-            const resultsAsJson = JSON.parse(results);
+            const resultsAsJson = results.map(result => JSON.parse(result));
             resolve(resultsAsJson);
         });
     });

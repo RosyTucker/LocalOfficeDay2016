@@ -36,7 +36,8 @@ describe('SensorReadingStore', () => {
 
     describe('getReading', () => {
         it('it should return a promise with the the last 5 seconds worth records', (done) => {
-            const timeRange = 5000, expectedResult = [{deviceId: 12, value: 'val'}, {deviceId: 3, value: 'meh'}];
+            const result1 = {deviceId: 12, value: 'val'}, result2 = {deviceId: 3, value: 'meh'};
+            const timeRange = 5000, expectedResult = [result1, result2];
 
             const getLatestReadingsPromise = SensorReadingStore.getLatestReadings(timeRange);
 
@@ -44,7 +45,7 @@ describe('SensorReadingStore', () => {
 
             const zrangeByScoreCallback = dbClient.zrangebyscore.firstCall.args[3];
 
-            zrangeByScoreCallback(null, JSON.stringify(expectedResult));
+            zrangeByScoreCallback(null, [JSON.stringify(result1), JSON.stringify(result2)]);
 
             PromiseHelper.success(getLatestReadingsPromise, result => {
                 expect(result).to.deep.equal(expectedResult);
