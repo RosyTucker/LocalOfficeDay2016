@@ -44,7 +44,7 @@ describe('SensorReadingStore', () => {
 
             const zrangeByScoreCallback = dbClient.zrangebyscore.firstCall.args[3];
 
-            zrangeByScoreCallback(expectedResult);
+            zrangeByScoreCallback(null, expectedResult);
 
             PromiseHelper.success(getLatestReadingsPromise, result => {
                 expect(result).to.equal(expectedResult);

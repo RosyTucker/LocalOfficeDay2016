@@ -11,7 +11,7 @@ const putReading = (deviceId, value) => {
 const getLatestReadings = (timeRangeMillis) => {
     return new Promise(resolve => {
         const client = DatabaseClient.getClient();
-        client.zrangebyscore(seriesName, Date.now() - timeRangeMillis, Date.now(), (results) => {
+        client.zrangebyscore(seriesName, Date.now() - timeRangeMillis, Date.now(), (error, results) => {
             console.log('Results', results);
             resolve(results);
         });
