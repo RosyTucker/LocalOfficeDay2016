@@ -1,4 +1,4 @@
-import {expect, sinon} from '../TestHelper';
+import {expect, sinon, PromiseHelper} from '../TestHelper';
 import SensorReading from '../../src/SensorReading';
 import SensorReadingStore from '../../src/SensorReading/SensorReadingStore';
 
@@ -75,8 +75,18 @@ describe('SensorReading', () => {
         });
     });
 
-    // describe('GET', () => {
-    //    it('', () => {
-    //    });
-    // });
+    describe('GET', () => {
+        it('should return the last 5 seconds worth of sensor readings', (done) => {
+            const results = [{someKey: 'someval', 2: 3}, {someKey: 'someotherval', 1: 5}],
+                promise = new Promise(resolve => resolve(results));
+            SensorReadingStore.getLatestReadings.withArgs(5000).returns(promise);
+
+            SensorReading.getHandler({}, response);
+
+            PromiseHelper.success(promise, () => {
+                expect(response.statusCode).to.equal(200);
+                expect(response.json).to.have.been.calledWith({data: results});
+            }, done);
+        });
+    });
 });

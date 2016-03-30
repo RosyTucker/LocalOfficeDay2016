@@ -1,6 +1,6 @@
 import SensorReadingStore from './SensorReadingStore';
 
-const endPoint = '/sensorReading';
+const endPoint = '/sensorReading', timeRangeMillis = 5000;
 
 const isNumber = (input) => {
     return typeof input === 'number';
@@ -27,7 +27,13 @@ const postHandler = (req, res) => {
     res.json({data: {}});
 };
 
+const getHandler = (req, res) => {
+    res.statusCode = 200;
+    SensorReadingStore.getLatestReadings(timeRangeMillis).then(results => res.json({data: results}));
+};
+
 export default {
     postHandler,
+    getHandler,
     endPoint
 };
