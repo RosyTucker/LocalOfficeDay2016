@@ -44,10 +44,10 @@ describe('SensorReadingStore', () => {
 
             const zrangeByScoreCallback = dbClient.zrangebyscore.firstCall.args[3];
 
-            zrangeByScoreCallback(null, expectedResult);
+            zrangeByScoreCallback(null, JSON.stringify(expectedResult));
 
             PromiseHelper.success(getLatestReadingsPromise, result => {
-                expect(result).to.equal(expectedResult);
+                expect(result).to.deep.equal(expectedResult);
             }, done);
         });
     });
