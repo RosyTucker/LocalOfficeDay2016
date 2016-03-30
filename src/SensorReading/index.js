@@ -12,7 +12,6 @@ const invalidRequestResponse = (res, message) => {
 };
 
 const postHandler = (req, res) => {
-    console.log('body', req.body);
     if (!req.body || !req.body.deviceId || !req.body.value) {
         invalidRequestResponse(res, 'Sensor reading must have a deviceId and a value');
         return;
