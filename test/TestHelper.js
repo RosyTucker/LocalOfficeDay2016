@@ -10,6 +10,10 @@ const {expect} = chai;
 
 const PromiseHelper = {
     success(promiseObj, expectationsFunction, doneFunction) {
+        if (!promiseObj) {
+            throw new Error('Promise undefined');
+        }
+
         new Promise((resolve, reject) => {
             promiseObj.then(result => {
                 try {
