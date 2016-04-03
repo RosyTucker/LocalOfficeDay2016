@@ -35,21 +35,29 @@ describe('SensorReadingStore', () => {
     });
 
     describe('getReading', () => {
-        it('it should return a promise with the the last 5 seconds worth records', (done) => {
-            const result1 = {deviceId: 12, value: 'val'}, result2 = {deviceId: 3, value: 'meh'};
-            const timeRange = 5000, expectedResult = [result1, result2];
+        it('it should gt the sensor readings with the scores for the last 5 seconds', () => {
+            const timeRange = 5000;
 
-            const getLatestReadingsPromise = SensorReadingStore.getLatestReadings(timeRange);
+            SensorReadingStore.getLatestReadings(timeRange);
+            expect(dbClient.zrangebyscore).to.have.been.calledWith('SensorReadings', fakeDateTime - timeRange, fakeDateTime, 'withscores');
+        });
 
-            expect(dbClient.zrangebyscore).to.have.been.calledWith('SensorReadings', fakeDateTime - timeRange, fakeDateTime);
+        it('it should return a promise with the the results', (done) => {
+            const dbClientResponse = [
+                    JSON.stringify({deviceId: 12, value: 'val'}), 111,
+                    JSON.stringify({deviceId: 3, value: 'meh'}), 112
+                ],
+                expectedResults = [
+                    {time: 111, deviceId: 12, value: 'val'},
+                    {time: 112, deviceId: 3, value: 'meh'}
+                ];
 
-            const zrangeByScoreCallback = dbClient.zrangebyscore.firstCall.args[3];
+            const getLatestReadingsPromise = SensorReadingStore.getLatestReadings(0),
+                zrangeByScoreCallback = dbClient.zrangebyscore.firstCall.args[4];
 
-            zrangeByScoreCallback(null, [JSON.stringify(result1), JSON.stringify(result2)]);
+            zrangeByScoreCallback(null, dbClientResponse);
 
-            PromiseHelper.success(getLatestReadingsPromise, result => {
-                expect(result).to.deep.equal(expectedResult);
-            }, done);
+            PromiseHelper.success(getLatestReadingsPromise, result => expect(result).to.deep.equal(expectedResults), done);
         });
     });
 });
