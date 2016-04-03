@@ -12,6 +12,8 @@ Run
 
 This will build the dist folder and then start an express app server at [localhost:5005](http://localhost:5005).
 
+To run redis locally enter: `redis-server` on the command line
+
 Test
 ------
 
