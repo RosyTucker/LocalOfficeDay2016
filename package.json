@@ -9,7 +9,7 @@
     "local-deploy": "eb deploy Production",
     "local-test": "./scripts/local-test.sh",
     "local-run": "DEBUG=express:* babel-node index.js",
-    "client": "babel-node client/client.js"
+    "taskPoster": "babel-node taskPoster/taskPoster.js"
   },
   "repository": {
     "type": "git",

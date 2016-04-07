@@ -1,7 +1,7 @@
 import request from 'request';
 
 const baseUrl = 'https://hackworks-challenge.herokuapp.com',
-    typeSequence = [1, 2, 3, 4, 5],
+    typeSequence = [1, 2],
     destinationSequence = ['LDN'];
 
 const sleep = (millis) => {
