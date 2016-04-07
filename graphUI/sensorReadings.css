@@ -1,0 +1,27 @@
+body {
+    background: url(background.png) repeat;
+    padding: 20px;
+}
+
+body * {
+    font-family: "Helvetica Neue", "Open Sans", sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 200;
+    color: #1c1d20;
+    text-align: center;
+}
+
+h1 span {
+    border-bottom: solid thin #de3e49;
+}
+
+.chart-container {
+    text-align: center;
+    width: 90vw;
+    height: 70vh;
+    margin: auto;
+}
