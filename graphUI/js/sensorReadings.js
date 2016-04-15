@@ -28,7 +28,10 @@
                 data4: 'time4',
                 data5: 'time5',
                 data6: 'time6',
-                data7: 'time7'
+                data7: 'time7',
+                data8: 'time8',
+                data9: 'time9',
+                data10: 'time10'
             },
             columns: []
         }
